@@ -317,6 +317,69 @@ body {
   color: var(--gold-light);
 }
 
+/* Algorithms Grid */
+.algo-section {
+  margin-bottom: 2.5rem;
+}
+
+.algo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.algo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  color: var(--text-main);
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+}
+
+.algo-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--cyan);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.algo-card h5 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.algo-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.algo-btn {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: var(--cyan);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.algo-btn:hover {
+  background: var(--cyan);
+  color: #060d1f;
+}
+
 /* Blurb Card */
 .blurb-card {
   background: rgba(10, 20, 44, 0.65);
