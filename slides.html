@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Slides Decks - iGCSE Computer Science Paper 2 (2029 Edition)</title>
+  <meta name="description"
+    content="Official Google Slides presentations, editable templates, PPTX, and PDF downloads for all 19 chapters and Python quick reference for iGCSE Computer Science: Paper 2 by James Abela.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slides.css">
+</head>
+
+<body>
+
+  <!-- Background Grid Effect -->
+  <div class="circuit-bg" aria-hidden="true"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="slides-nav">
+    <a href="index.html" class="slides-nav-brand">
+      <span class="badge-mini">2029 Curriculum</span>
+      <span>Paper 2 Companion Hub</span>
+    </a>
+    <nav class="slides-nav-links">
+      <a href="index.html" class="slides-nav-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        <span>Back to Hub</span>
+      </a>
+      <a href="glossary.html" class="slides-nav-link">
+        <span>📖 Glossary</span>
+      </a>
+      <a href="https://drive.google.com/drive/folders/14w-k_zou9reW9fAc_Y1CE7O0H-6lyXOA" target="_blank"
+        rel="noopener noreferrer" class="slides-nav-link btn-drive" title="Open Google Drive Folder">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Google Drive Folder ↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <div class="slides-page-container">
+
+    <!-- Hero Header -->
+    <section class="slides-hero">
+      <div class="slides-hero-badges">
+        <span class="hero-pill-gold">Official Teaching Materials</span>
+        <span class="hero-pill-cyan">20 Slide Decks</span>
+        <span class="edition-sub">Author: James Abela</span>
+      </div>
+
+      <h1>iGCSE Computer Science Slide Decks</h1>
+      <h2>Paper 2: Python, Algorithms and Databases (2029 Curriculum Edition)</h2>
+
+      <p class="slides-hero-desc">
+        Complete classroom slide decks covering every chapter of the book. Each deck is ready for live
+        whiteboard projection, personal study, or direct lesson delivery. You can preview any presentation in-page, make
+        an editable Google Slides copy with template mode, download Microsoft PowerPoint (.pptx) files, or export
+        ready-to-print PDFs.
+      </p>
+
+      <div class="slides-hero-features">
+        <div class="hero-feat-item">
+          <div class="hero-feat-icon">📽️</div>
+          <div class="hero-feat-text">
+            <h4>In-Page Projector View</h4>
+            <p>Embedded interactive slides with full-screen projector & whiteboard mode.</p>
+          </div>
+        </div>
+        <div class="hero-feat-item">
+          <div class="hero-feat-icon">📋</div>
+          <div class="hero-feat-text">
+            <h4>Google Slides Template</h4>
+            <p>One-click copy to your Google Drive to customize for your own classroom.</p>
+          </div>
+        </div>
+        <div class="hero-feat-item">
+          <div class="hero-feat-icon">📊</div>
+          <div class="hero-feat-text">
+            <h4>Direct PPTX Download</h4>
+            <p>Instantly export PowerPoint format for offline presentation and editing.</p>
+          </div>
+        </div>
+        <div class="hero-feat-item">
+          <div class="hero-feat-icon">📄</div>
+          <div class="hero-feat-text">
+            <h4>Print-Ready PDF</h4>
+            <p>Download clean, high-resolution student handouts and revision notes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search & Filters Bar -->
+    <section class="slides-controls-bar">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="slideSearch" class="slide-search-input"
+          placeholder="Search by chapter, keyword, or topic (e.g. Loops, SQL, Trace Tables, Chapter 03)..."
+          autocomplete="off">
+        <button id="clearSearchBtn" class="search-clear-btn" title="Clear search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="filter-row">
+        <div class="filter-chips" id="filterChips">
+          <button class="filter-chip active" data-filter="all">All Decks (20)</button>
+          <button class="filter-chip" data-filter="python">Python Fundamentals (Ch 1-5, 9, App)</button>
+          <button class="filter-chip" data-filter="logic">Algorithms & Logic (Ch 6-8)</button>
+          <button class="filter-chip" data-filter="data">Data & Databases (Ch 10, 11, 14, 15)</button>
+          <button class="filter-chip" data-filter="exam">Exam Skills & Testing (Ch 12, 13, 16-19)</button>
+        </div>
+
+        <div class="results-stats" id="resultsCount">
+          Showing <strong>20</strong> of 20 decks
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide Cards Grid -->
+    <main>
+      <div class="slide-grid" id="slideGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- Empty State (Shown when search has no matches) -->
+      <div class="slides-empty-state" id="emptyState">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+        <h3>No matching slide decks found</h3>
+        <p>Try searching for a different chapter, keyword, or reset the filters.</p>
+        <button class="btn-reset-filters" id="resetFiltersBtn">Reset Filters & Show All</button>
+      </div>
+    </main>
+
+    <!-- Simple, Clean Footer -->
+    <footer class="hub-footer">
+      <div class="footer-content">
+        <p><strong>iGCSE Computer Science: Paper 2 (2029 Edition)</strong> by James Abela</p>
+        <p>
+          <a href="https://drive.google.com/drive/folders/14w-k_zou9reW9fAc_Y1CE7O0H-6lyXOA" target="_blank"
+            rel="noopener noreferrer">
+            Open Official Google Drive Folder ↗
+          </a>
+          &nbsp;•&nbsp;
+          <a href="index.html">Course Materials Hub</a>
+          &nbsp;•&nbsp;
+          <a href="glossary.html">Interactive Whiteboard Glossary</a>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==========================================================================
+       Interactive In-Page Presentation Modal / Whiteboard Projector Mode
+       ========================================================================== -->
+  <div class="slide-modal-backdrop" id="slideModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="slide-modal-window" id="modalWindow">
+      
+      <!-- Modal Header -->
+      <div class="slide-modal-header">
+        <div class="modal-deck-info">
+          <span class="modal-chapter-tag" id="modalChapter">Chapter 01</span>
+          <h3 class="modal-title" id="modalTitle">Getting Started with Python</h3>
+        </div>
+
+        <div class="modal-toolbar">
+          <button class="modal-tool-btn btn-fullscreen" id="modalFullscreenBtn" title="Toggle Fullscreen Projector Mode">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+            </svg>
+            <span>Present Mode</span>
+          </button>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" class="modal-tool-btn btn-extra-hide" id="modalTemplateLink" title="Make a Copy / Use Template">
+            <span>📋 Template</span>
+          </a>
+
+          <a href="#" class="modal-tool-btn btn-extra-hide" id="modalPptxLink" title="Download PowerPoint Presentation">
+            <span>📊 PPTX</span>
+          </a>
+
+          <a href="#" class="modal-tool-btn btn-extra-hide" id="modalPdfLink" title="Download Printable PDF">
+            <span>📄 PDF</span>
+          </a>
+
+          <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close presentation viewer (Esc)">
+            &times;
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (16:9 Google Slides Embed) -->
+      <div class="slide-modal-body">
+        <div class="slide-iframe-wrapper">
+          <div class="slide-loading-spinner" id="slideSpinner">
+            <div class="spinner-circle"></div>
+            <span>Loading presentation...</span>
+          </div>
+          <iframe id="modalIframe" class="slide-iframe" src="about:blank" title="Google Slides Presentation"
+            allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+      </div>
+
+      <!-- Modal Footer (Sequence Navigation) -->
+      <div class="slide-modal-footer">
+        <div class="modal-nav-group">
+          <button class="modal-nav-btn" id="modalPrevBtn" title="Previous Deck (Left Arrow)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span>Previous Deck</span>
+          </button>
+          <button class="modal-nav-btn" id="modalNextBtn" title="Next Deck (Right Arrow)">
+            <span>Next Deck</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="modal-hint-text">
+          Use <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: monospace;">Esc</kbd> to close &bull; Click slides to advance
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script>
+    // All 20 verified Google Slide decks from the official drive folder
+    const slideDecks = [
+      {
+        id: "1r4B67A5akCc8e3KfixF878mijxoRdiRSg6bWK8sNMy0",
+        chapter: "Chapter 01",
+        chNum: 1,
+        title: "Getting Started with Python",
+        category: "python",
+        categoryLabel: "Python",
+        description: "Introduction to Python programming, basic syntax, outputting with print(), code comments, and setting up an interactive development workflow.",
+        keywords: ["python", "getting started", "syntax", "print", "comments", "setup"]
+      },
+      {
+        id: "1gjBddeJwvKfV1mqPzA4DedwB3BE3WMFw1rC2kwHDsYo",
+        chapter: "Chapter 02",
+        chNum: 2,
+        title: "Variables, Data Types & Operators",
+        category: "python",
+        categoryLabel: "Python",
+        description: "Understanding integer, float, string, and boolean types, variable assignment, type casting, arithmetic calculations, and comparison operators.",
+        keywords: ["variables", "data types", "operators", "integers", "floats", "strings", "booleans", "casting"]
+      },
+      {
+        id: "1C3Q94dME0Krn04vhJ_2_ZiU7CrkpmuE4bBN6jkgg8rI",
+        chapter: "Chapter 03",
+        chNum: 3,
+        title: "Selection & Decisions",
+        category: "python",
+        categoryLabel: "Python",
+        description: "Conditional logic using IF, ELIF, and ELSE statements, boolean expressions, logical operators (AND, OR, NOT), and nested decision trees.",
+        keywords: ["selection", "if", "elif", "else", "decisions", "conditionals", "boolean"]
+      },
+      {
+        id: "1FNh-e0hsbBQ0keB13b1gy0lFvr49HNI2Fd211N9cRvs",
+        chapter: "Chapter 04",
+        chNum: 4,
+        title: "Loops & Iteration",
+        category: "python",
+        categoryLabel: "Python",
+        description: "Definite iteration with count-controlled FOR loops, range() generation, indefinite iteration with WHILE loops, loop counters, and infinite loop safeguards.",
+        keywords: ["loops", "iteration", "for loop", "while loop", "range", "repetition"]
+      },
+      {
+        id: "1PvwVJf_5SLVYw-VquLOtzLa_KEh0yZFZfkyHEwGNbhU",
+        chapter: "Chapter 05",
+        chNum: 5,
+        title: "Strings & String Manipulation",
+        category: "python",
+        categoryLabel: "Python",
+        description: "Character indexing, slicing, string concatenation, len(), upper(), lower(), format conversions, and text parsing algorithms.",
+        keywords: ["strings", "slicing", "indexing", "manipulation", "len", "concatenation"]
+      },
+      {
+        id: "1EpopceXEKzmkrrzIVm1oKL8ydGVTYd4Fb-VDAuhlhEY",
+        chapter: "Chapter 06",
+        chNum: 6,
+        title: "Computational Thinking & Problem Solving",
+        category: "logic",
+        categoryLabel: "Logic & Thinking",
+        description: "The core pillars of computational thinking: decomposition, pattern recognition, abstraction, algorithm design, and structuring solutions.",
+        keywords: ["computational thinking", "problem solving", "decomposition", "abstraction", "patterns", "algorithm design"]
+      },
+      {
+        id: "1QfOYZJEqz4BvAtc1icSGMhKC9rBCltDnkVgAtvXDQI4",
+        chapter: "Chapter 07",
+        chNum: 7,
+        title: "Flowcharts & Tracing Algorithms",
+        category: "logic",
+        categoryLabel: "Logic & Thinking",
+        description: "Standard flowchart notation and symbols, constructing trace tables, step-by-step dry runs, tracking variable states, and spotting algorithmic flaws.",
+        keywords: ["flowcharts", "trace tables", "tracing", "dry run", "algorithm tracing", "symbols"]
+      },
+      {
+        id: "1FsA9HBJjzomWlXywXJBEBzOrkkI4S2IoYd8Sgxz9T-I",
+        chapter: "Chapter 08",
+        chNum: 8,
+        title: "Searching & Sorting",
+        category: "logic",
+        categoryLabel: "Logic & Thinking",
+        description: "Linear search mechanics, binary search efficiency and prerequisites, step-by-step bubble sort passes, and algorithmic comparisons.",
+        keywords: ["searching", "sorting", "linear search", "binary search", "bubble sort", "algorithms"]
+      },
+      {
+        id: "17aGusdkWvD726225g8ZFXwzim4k9wWjHACkNsx3wiEI",
+        chapter: "Chapter 09",
+        chNum: 9,
+        title: "Procedures, Functions & Scope",
+        category: "python",
+        categoryLabel: "Python",
+        description: "Modular coding, defining subroutines with def, passing arguments and parameters, return values vs procedures, and local vs global variable scope.",
+        keywords: ["functions", "procedures", "scope", "parameters", "arguments", "return", "modular"]
+      },
+      {
+        id: "1V40QOjTBVOkMiWnzA8xi3jFZvdv2ZMHQj61qILzm5oA",
+        chapter: "Chapter 10",
+        chNum: 10,
+        title: "Lists & 2D Lists",
+        category: "data",
+        categoryLabel: "Data Structures",
+        description: "Creating 1D lists, indexing, list manipulation (append, insert, pop, remove), iterating lists, and working with multi-dimensional 2D lists (grids and tables).",
+        keywords: ["lists", "arrays", "2d lists", "matrices", "data structures", "append"]
+      },
+      {
+        id: "1QBdhMYerv7BTZRVJbYEEY20J9T5m4m9qyktfUeNyoeE",
+        chapter: "Chapter 11",
+        chNum: 11,
+        title: "File Handling",
+        category: "data",
+        categoryLabel: "Data Structures",
+        description: "Opening text files in read ('r'), write ('w'), and append ('a') modes, reading lines, writing record structures, and closing resources properly.",
+        keywords: ["file handling", "reading files", "writing files", "append", "text files", "open"]
+      },
+      {
+        id: "16wmlUUv5NDScB1fXp4mN7Mw_7sg8vkpQ4Itays9TpVg",
+        chapter: "Chapter 12",
+        chNum: 12,
+        title: "Validation & Verification",
+        category: "exam",
+        categoryLabel: "Exam Skills",
+        description: "Data validation techniques (range, length, type, presence, format, check digits) vs data verification methods (double-entry, visual proofreading).",
+        keywords: ["validation", "verification", "range check", "type check", "length check", "double entry"]
+      },
+      {
+        id: "1rU9GjjmGL6p_EUtv3YbW9VbgiGlhoF7GjGSTNVjI_VA",
+        chapter: "Chapter 13",
+        chNum: 13,
+        title: "Testing, Errors & Debugging",
+        category: "exam",
+        categoryLabel: "Exam Skills",
+        description: "Identifying syntax, runtime, and logic errors, constructing comprehensive test plans with normal, boundary, and erroneous test data.",
+        keywords: ["testing", "errors", "debugging", "syntax error", "logic error", "test data", "boundary"]
+      },
+      {
+        id: "1TtqQgJBGfXAys9kiHOe-R_qi8ZFEk-3Pnd_zI-k_xjQ",
+        chapter: "Chapter 14",
+        chNum: 14,
+        title: "Databases",
+        category: "data",
+        categoryLabel: "Data Structures",
+        description: "Database fundamental concepts, tables, records, fields, data types, primary keys, composite keys, foreign keys, and relational integrity.",
+        keywords: ["databases", "tables", "records", "fields", "primary keys", "foreign keys"]
+      },
+      {
+        id: "1AyqQhp5u7mAs3fSwGMTnzscrganvLRgZba0hwWFUlBs",
+        chapter: "Chapter 15",
+        chNum: 15,
+        title: "Structured Query Language (SQL)",
+        category: "data",
+        categoryLabel: "Data Structures",
+        description: "Writing relational database queries with SELECT, FROM, WHERE, ORDER BY, GROUP BY, AND, OR, wildcards, and aggregate functions (COUNT, SUM, AVG).",
+        keywords: ["sql", "select", "from", "where", "order by", "queries", "database queries"]
+      },
+      {
+        id: "1jx3TgRVwfNmBKhLTeFFoImX6aS8CYkZAa1_TEZ1zyts",
+        chapter: "Chapter 16",
+        chNum: 16,
+        title: "Solving Larger Programming Problems",
+        category: "exam",
+        categoryLabel: "Exam Skills",
+        description: "Strategies for top-down problem breakdown, designing structured programs, modular development, combining data structures, and solving multi-step tasks.",
+        keywords: ["larger problems", "problem solving", "top down design", "structure diagrams", "mini projects"]
+      },
+      {
+        id: "1Wgb017xZCQ-260QfEHOGis3yfQ5EnodI0KCJ33qZOhQ",
+        chapter: "Chapter 17",
+        chNum: 17,
+        title: "Scenario-Based Programming Questions",
+        category: "exam",
+        categoryLabel: "Exam Skills",
+        description: "Frameworks for answering the 15-mark scenario exam question: reading specifications, declaring data structures, validating inputs, and producing clear output.",
+        keywords: ["scenario", "15 mark question", "exam practice", "programming scenarios", "specifications"]
+      },
+      {
+        id: "1s-caocmCtNK80FpzSWnl9so7wcJJwUrrefd66AreECE",
+        chapter: "Chapter 18",
+        chNum: 18,
+        title: "Paper 2 Exam Skills & Techniques",
+        category: "exam",
+        categoryLabel: "Exam Skills",
+        description: "Exam command words, mark allocation breakdown, trace table strategies, writing precise pseudocode/Python, time management, and avoiding common pitfalls.",
+        keywords: ["exam skills", "paper 2", "command words", "technique", "mark scheme", "revision"]
+      },
+      {
+        id: "1sFTRKyk6YikorwSaciqWbbkX00qtUkY6xqPbBH4Dvyc",
+        chapter: "Chapter 19",
+        chNum: 19,
+        title: "Final Revision & Practice",
+        category: "exam",
+        categoryLabel: "Exam Skills",
+        description: "End-of-course syllabus revision summary, high-yield algorithm reviews, past paper style questions, answer checking, and final exam preparation.",
+        keywords: ["final revision", "practice", "summary", "checklist", "past paper", "exam preparation"]
+      },
+      {
+        id: "1s3HHa3-e1VIwTbc0zXWjHxkM2_lpVuoyXEEZn1LtFEw",
+        chapter: "Appendix 01",
+        chNum: 20,
+        title: "Python Quick Reference",
+        category: "python",
+        categoryLabel: "Reference",
+        description: "Essential Python syntax reference guide, core built-in functions, keywords, string methods, data conversions, operators, and exam-safe patterns.",
+        keywords: ["appendix", "quick reference", "cheat sheet", "reference", "built in functions", "keywords"]
+      }
+    ];
+
+    // State
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let currentModalIndex = 0;
+    let visibleDecks = [...slideDecks];
+
+    // DOM Elements
+    const slideGrid = document.getElementById('slideGrid');
+    const slideSearch = document.getElementById('slideSearch');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const filterChips = document.getElementById('filterChips');
+    const resultsCount = document.getElementById('resultsCount');
+    const emptyState = document.getElementById('emptyState');
+    const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+    // Modal Elements
+    const slideModal = document.getElementById('slideModal');
+    const modalWindow = document.getElementById('modalWindow');
+    const modalChapter = document.getElementById('modalChapter');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalIframe = document.getElementById('modalIframe');
+    const slideSpinner = document.getElementById('slideSpinner');
+    const modalFullscreenBtn = document.getElementById('modalFullscreenBtn');
+    const modalTemplateLink = document.getElementById('modalTemplateLink');
+    const modalPptxLink = document.getElementById('modalPptxLink');
+    const modalPdfLink = document.getElementById('modalPdfLink');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalPrevBtn = document.getElementById('modalPrevBtn');
+    const modalNextBtn = document.getElementById('modalNextBtn');
+
+    // URLs helper functions
+    function getEmbedUrl(id) {
+      return `https://docs.google.com/presentation/d/${id}/embed?start=false&loop=false&delayms=3000`;
+    }
+
+    function getTemplateUrl(id) {
+      return `https://docs.google.com/presentation/d/${id}/template/preview`;
+    }
+
+    function getPptxUrl(id) {
+      return `https://docs.google.com/presentation/d/${id}/export/pptx`;
+    }
+
+    function getPdfUrl(id) {
+      return `https://docs.google.com/presentation/d/${id}/export/pdf`;
+    }
+
+    function getPreviewUrl(id) {
+      return `https://docs.google.com/presentation/d/${id}/preview`;
+    }
+
+    // Render cards
+    function renderDecks() {
+      const q = searchQuery.toLowerCase().trim();
+      
+      visibleDecks = slideDecks.filter(deck => {
+        // Filter match
+        const matchesFilter = (currentFilter === 'all') || (deck.category === currentFilter);
+        
+        // Search match
+        const matchesSearch = !q || (
+          deck.title.toLowerCase().includes(q) ||
+          deck.chapter.toLowerCase().includes(q) ||
+          deck.description.toLowerCase().includes(q) ||
+          deck.keywords.some(k => k.toLowerCase().includes(q))
+        );
+
+        return matchesFilter && matchesSearch;
+      });
+
+      // Update count
+      resultsCount.innerHTML = `Showing <strong>${visibleDecks.length}</strong> of ${slideDecks.length} decks`;
+
+      if (visibleDecks.length === 0) {
+        slideGrid.style.display = 'none';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      slideGrid.style.display = 'grid';
+      emptyState.style.display = 'none';
+
+      slideGrid.innerHTML = visibleDecks.map(deck => {
+        const isAppendix = deck.chapter.toLowerCase().includes('appendix');
+        const tagClass = isAppendix ? 'slide-chapter-tag appendix-tag' : 'slide-chapter-tag';
+        const globalIndex = slideDecks.findIndex(d => d.id === deck.id);
+
+        return `
+          <article class="slide-card" id="deck-${deck.id}" data-category="${deck.category}">
+            <div>
+              <div class="slide-card-top">
+                <span class="${tagClass}">${deck.chapter}</span>
+                <span class="slide-category-pill">
+                  <span class="slide-category-dot"></span>
+                  ${deck.categoryLabel}
+                </span>
+              </div>
+              <h3 class="slide-card-title">${deck.title}</h3>
+              <p class="slide-card-desc">${deck.description}</p>
+            </div>
+
+            <div class="slide-actions-container">
+              <!-- Primary Action: In-page Viewer -->
+              <button class="slide-primary-btn" onclick="openDeckModal(${globalIndex})" title="Open interactive slide projector in this page">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                </svg>
+                <span>View In Page</span>
+              </button>
+
+              <!-- Secondary Action Buttons -->
+              <div class="slide-secondary-actions">
+                <a href="${getTemplateUrl(deck.id)}" target="_blank" rel="noopener noreferrer" class="slide-sub-btn btn-template" title="Make a copy / Use Template in Google Slides">
+                  📋 Template
+                </a>
+                <a href="${getPptxUrl(deck.id)}" class="slide-sub-btn btn-pptx" title="Download as Microsoft PowerPoint (.pptx)">
+                  📊 PPTX
+                </a>
+                <a href="${getPdfUrl(deck.id)}" class="slide-sub-btn btn-pdf" title="Download as Printable PDF Document (.pdf)">
+                  📄 PDF
+                </a>
+                <a href="${getPreviewUrl(deck.id)}" target="_blank" rel="noopener noreferrer" class="slide-sub-btn btn-open" title="Open directly in Google Slides">
+                  ↗ Open
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Modal Control Functions
+    function openDeckModal(index) {
+      if (index < 0 || index >= slideDecks.length) return;
+      currentModalIndex = index;
+      const deck = slideDecks[currentModalIndex];
+
+      modalChapter.textContent = deck.chapter;
+      modalTitle.textContent = deck.title;
+      modalTemplateLink.href = getTemplateUrl(deck.id);
+      modalPptxLink.href = getPptxUrl(deck.id);
+      modalPdfLink.href = getPdfUrl(deck.id);
+
+      // Previous/Next disabled states
+      modalPrevBtn.disabled = (currentModalIndex === 0);
+      modalNextBtn.disabled = (currentModalIndex === slideDecks.length - 1);
+
+      // Loading state
+      slideSpinner.style.display = 'flex';
+      modalIframe.style.opacity = '0';
+      modalIframe.src = getEmbedUrl(deck.id);
+
+      modalIframe.onload = function() {
+        slideSpinner.style.display = 'none';
+        modalIframe.style.opacity = '1';
+      };
+
+      slideModal.classList.add('open');
+      slideModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Update URL hash without jumping
+      history.replaceState(null, null, `#deck-${deck.chNum}`);
+    }
+
+    function closeDeckModal() {
+      slideModal.classList.remove('open');
+      slideModal.setAttribute('aria-hidden', 'true');
+      modalIframe.src = 'about:blank';
+      document.body.style.overflow = '';
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+
+    function prevDeck() {
+      if (currentModalIndex > 0) {
+        openDeckModal(currentModalIndex - 1);
+      }
+    }
+
+    function nextDeck() {
+      if (currentModalIndex < slideDecks.length - 1) {
+        openDeckModal(currentModalIndex + 1);
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        modalWindow.requestFullscreen().catch(err => {
+          console.warn("Fullscreen request failed:", err);
+        });
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    // Event Listeners
+    slideSearch.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
+      renderDecks();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      slideSearch.value = '';
+      searchQuery = '';
+      clearSearchBtn.style.display = 'none';
+      slideSearch.focus();
+      renderDecks();
+    });
+
+    filterChips.addEventListener('click', (e) => {
+      const chip = e.target.closest('.filter-chip');
+      if (!chip) return;
+
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentFilter = chip.getAttribute('data-filter');
+      renderDecks();
+    });
+
+    resetFiltersBtn.addEventListener('click', () => {
+      slideSearch.value = '';
+      searchQuery = '';
+      clearSearchBtn.style.display = 'none';
+      currentFilter = 'all';
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      document.querySelector('.filter-chip[data-filter="all"]').classList.add('active');
+      renderDecks();
+    });
+
+    modalCloseBtn.addEventListener('click', closeDeckModal);
+    modalPrevBtn.addEventListener('click', prevDeck);
+    modalNextBtn.addEventListener('click', nextDeck);
+    modalFullscreenBtn.addEventListener('click', toggleFullscreen);
+
+    // Click outside modal window to close
+    slideModal.addEventListener('click', (e) => {
+      if (e.target === slideModal) {
+        closeDeckModal();
+      }
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      // Focus search on '/'
+      if (e.key === '/' && document.activeElement !== slideSearch && !slideModal.classList.contains('open')) {
+        e.preventDefault();
+        slideSearch.focus();
+      }
+
+      if (!slideModal.classList.contains('open')) return;
+
+      if (e.key === 'Escape') {
+        closeDeckModal();
+      } else if (e.key === 'ArrowLeft') {
+        prevDeck();
+      } else if (e.key === 'ArrowRight') {
+        nextDeck();
+      }
+    });
+
+    // Check URL hash on page load (e.g. #deck-3 opens chapter 3)
+    function checkInitialHash() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#deck-')) {
+        const num = parseInt(hash.replace('#deck-', ''), 10);
+        if (!isNaN(num)) {
+          const index = slideDecks.findIndex(d => d.chNum === num);
+          if (index !== -1) {
+            openDeckModal(index);
+          }
+        }
+      }
+    }
+
+    // Initial render
+    renderDecks();
+    checkInitialHash();
+  </script>
+
+  <!-- GoatCounter Analytics -->
+  <script data-goatcounter="https://jabela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
