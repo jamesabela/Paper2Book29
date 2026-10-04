@@ -1,0 +1,13 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Node / Web dependencies & build outputs (if used later)
+node_modules/
+dist/
+build/
+.cache/
+
+# Environment files
+.env
+.env.local
