@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iGCSE Computer Science - Interactive Glossary</title>
+  <!-- Reuse the main CSS for consistent styling -->
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Specific styling for the Glossary Whiteboard UI */
+    .glossary-container {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 120px);
+      margin: 2rem auto;
+      max-width: 1400px;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .glossary-container {
+        flex-direction: row;
+      }
+    }
+
+    /* Sidebar / Search */
+    .glossary-sidebar {
+      flex: 1;
+      max-width: 400px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .search-box {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      font-size: 1.2rem;
+      outline: none;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+
+    .search-box input:focus {
+      border-color: var(--cyan);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    }
+
+    .word-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      list-style: none;
+      margin: 0;
+    }
+
+    .word-list li {
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      border-left: 3px solid transparent;
+    }
+
+    .word-list li:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .word-list li.active {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+      font-weight: bold;
+      border-left-color: var(--cyan);
+    }
+
+    /* Main Display Area (Whiteboard mode) */
+    .glossary-main {
+      flex: 2;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(12px);
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    #display-area {
+      display: none;
+    }
+
+    #display-area.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .g-word {
+      font-size: 4.5rem;
+      color: var(--cyan);
+      font-family: var(--font-heading);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .g-category {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .g-desc {
+      font-size: 2.2rem;
+      line-height: 1.5;
+      color: #ffffff;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .g-example-box {
+      background: rgba(10, 20, 44, 0.6);
+      border-left: 5px solid var(--cyan);
+      padding: 2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 2rem;
+    }
+
+    .g-example-title {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    .g-code {
+      font-family: monospace;
+      font-size: 1.6rem;
+      color: #a5d6ff;
+      white-space: pre-wrap;
+      line-height: 1.4;
+    }
+
+    .g-output {
+      font-family: monospace;
+      font-size: 1.5rem;
+      color: #ff7b72;
+      margin-top: 1.5rem;
+      white-space: pre-wrap;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Fullscreen Mode Styles */
+    .fs-btn {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fs-btn:hover {
+      background: var(--cyan);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+    }
+
+    /* When the element is actually fullscreen */
+    .glossary-main:fullscreen {
+      padding: 6rem;
+      background: #060d1f;
+      overflow-y: auto;
+      justify-content: center;
+    }
+
+    .glossary-main:fullscreen .g-word {
+      font-size: 7rem;
+    }
+
+    .glossary-main:fullscreen .g-desc {
+      font-size: 3.5rem;
+    }
+
+    .glossary-main:fullscreen .g-code {
+      font-size: 2.5rem;
+    }
+
+    .glossary-main:fullscreen .g-output {
+      font-size: 2.5rem;
+    }
+
+    .glossary-main:fullscreen .fs-btn {
+      display: none;
+      /* Hide button in fullscreen */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Navigation -->
+  <nav class="hub-nav">
+    <div class="nav-brand">
+      <a href="index.html" style="color: inherit; text-decoration: none;">Interactive Glossary</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">← Back to Hub</a>
+    </div>
+  </nav>
+
+  <main style="padding-top: 80px; padding-left: 20px; padding-right: 20px;">
+    <div class="glossary-container">
+
+      <!-- Sidebar / Search -->
+      <div class="glossary-sidebar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search terms (e.g., Integer)..." autocomplete="off" />
+        </div>
+        <ul class="word-list" id="wordList">
+          <!-- Populated by JS -->
+        </ul>
+      </div>
+
+      <!-- Main Display -->
+      <div class="glossary-main" id="fullscreenArea">
+        <button class="fs-btn" id="fsBtn" title="Present on Whiteboard">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+            </path>
+          </svg>
+          Present Mode
+        </button>
+
+        <div id="welcome-message"
+          style="text-align: center; color: var(--text-muted); font-size: 1.8rem; margin-top: 10vh;">
+          Select a term from the list or search for one to display it on the whiteboard.
+        </div>
+
+        <div id="display-area">
+          <div class="g-category" id="gCategory"></div>
+          <h1 class="g-word" id="gWord"></h1>
+          <p class="g-desc" id="gDesc"></p>
+
+          <div id="pythonExampleBox" class="g-example-box" style="display: none;">
+            <div class="g-example-title">Python Example</div>
+            <div class="g-code" id="gPyCode"></div>
+            <div class="g-output" id="gPyOutput"></div>
+          </div>
+
+          <div id="examExampleBox" class="g-example-box" style="display: none;">
+            <div class="g-example-title">Exam Example</div>
+            <div style="font-size: 1.8rem; color: #fff; margin-bottom: 1rem; font-weight: 500;" id="gExamQ"></div>
+            <div class="g-code" style="color: #a5d6ff;" id="gExamA"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 1rem;">
+    Powered by <a href="https://arcticreading.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); text-decoration: none;">LexaEngine™</a>
+  </footer>
+
+  <script>
+    let glossaryData = [];
+    const wordListEl = document.getElementById('wordList');
+    const searchInput = document.getElementById('searchInput');
+    const displayArea = document.getElementById('display-area');
+    const welcomeMsg = document.getElementById('welcome-message');
+    const fsBtn = document.getElementById('fsBtn');
+
+    // Fetch and initialize
+    fetch('glossary.json')
+      .then(res => res.json())
+      .then(data => {
+        glossaryData = data.entries;
+        // Sort alphabetically
+        glossaryData.sort((a, b) => a.word.toLowerCase().localeCompare(b.word.toLowerCase()));
+        renderList(glossaryData);
+      })
+      .catch(err => {
+        console.error("Error loading glossary", err);
+        welcomeMsg.textContent = "Error loading glossary data. Please check the file.";
+      });
+
+    function renderList(items) {
+      wordListEl.innerHTML = '';
+      if (items.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = "No terms found.";
+        li.style.cursor = 'default';
+        wordListEl.appendChild(li);
+        return;
+      }
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.word;
+        li.onclick = () => {
+          document.querySelectorAll('.word-list li').forEach(el => el.classList.remove('active'));
+          li.classList.add('active');
+          displayTerm(item);
+        };
+        wordListEl.appendChild(li);
+      });
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = glossaryData.filter(item =>
+        item.word.toLowerCase().includes(q) ||
+        item.description.toLowerCase().includes(q)
+      );
+      renderList(filtered);
+    });
+
+    function displayTerm(item) {
+      welcomeMsg.style.display = 'none';
+      displayArea.classList.remove('active');
+      // trigger reflow for animation
+      void displayArea.offsetWidth;
+
+      document.getElementById('gWord').textContent = item.word;
+      document.getElementById('gCategory').textContent = item.category || 'Vocabulary';
+      document.getElementById('gDesc').textContent = item.description;
+
+      const pyBox = document.getElementById('pythonExampleBox');
+      if (item.python_example) {
+        pyBox.style.display = 'block';
+        document.getElementById('gPyCode').textContent = item.python_example.code || '';
+        document.getElementById('gPyOutput').textContent = item.python_example.output ? `Output:\n${item.python_example.output}` : '';
+      } else {
+        pyBox.style.display = 'none';
+      }
+
+      const examBox = document.getElementById('examExampleBox');
+      if (item.exam_example) {
+        examBox.style.display = 'block';
+        document.getElementById('gExamQ').textContent = "Q: " + (item.exam_example.question || '');
+        document.getElementById('gExamA').textContent = "A:\n" + (item.exam_example.student_answer || '');
+      } else {
+        examBox.style.display = 'none';
+      }
+
+      displayArea.classList.add('active');
+    }
+
+    // Fullscreen toggle logic for whiteboard mode
+    fsBtn.addEventListener('click', () => {
+      const el = document.getElementById('fullscreenArea');
+      if (!document.fullscreenElement) {
+        if (el.requestFullscreen) {
+          el.requestFullscreen();
+        } else if (el.webkitRequestFullscreen) { /* Safari */
+          el.webkitRequestFullscreen();
+        } else if (el.msRequestFullscreen) { /* IE11 */
+          el.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
+  </script>
+  <script data-goatcounter="https://jabela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

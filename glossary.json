@@ -1,0 +1,2153 @@
+{
+  "title": "iGCSE Computer Science Paper 2 vocabulary",
+  "language": "en-GB",
+  "schema_version": "1.0",
+  "notes": [
+    "Includes every term in the previous straight list, plus the Python reference names supplied earlier.",
+    "Descriptions and sample questions are original teaching material. Student answers are illustrative, not official mark-scheme wording.",
+    "The 13 exam_command entries follow the supplied 2029 syllabus command-word list. Other practical instructions are labelled exam_instruction.",
+    "Examples use Python 3.10 or later. Python code, printed output and example input are separate fields.",
+    "File examples create small example files in the current working directory. Run them in a practice folder.",
+    "Terms from the old book and supporting vocabulary are not all separately named syllabus requirements."
+  ],
+  "sources": [
+    {
+      "title": "iGCSE Computer Science: Paper 2, 2029 Edition",
+      "section": "Appendix 2 glossary and vocabulary identified in the preceding conversation"
+    },
+    {
+      "title": "iGCSEPaper2 OLD Book.pdf",
+      "section": "Glossary"
+    },
+    {
+      "title": "763395-2029-syllabus(1).pdf",
+      "section": "Topics 8-11, Python guide and command words on printed page 49",
+      "note": "The supplied document identifies itself as the Cambridge IGCSE Computer Science 0265 syllabus for 2029."
+    },
+    {
+      "title": "0478 Computer Science 2029 Specimen Question Paper 02.pdf",
+      "section": "Question wording and practical instructions"
+    }
+  ],
+  "entry_count": 353,
+  "entries": [
+    {
+      "word": "\"a\"",
+      "description": "The file-mode string for appending; writes go to the end and the file is created if absent.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    file.write(\"A\")\nwith open(\"note.txt\", \"a\") as file:\n    file.write(\"B\")\nwith open(\"note.txt\", \"r\") as file:\n    print(file.read())",
+        "output": "AB\n"
+      }
+    },
+    {
+      "word": "\"r\"",
+      "description": "The file-mode string for reading an existing file; a missing file normally raises FileNotFoundError.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    file.write(\"Hello\")\nwith open(\"note.txt\", \"r\") as file:\n    print(file.read())",
+        "output": "Hello\n"
+      }
+    },
+    {
+      "word": "\"w\"",
+      "description": "The file-mode string for writing; opening in this mode clears existing contents or creates a new file.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    file.write(\"New text\")",
+        "output": ""
+      }
+    },
+    {
+      "word": ".append()",
+      "description": "Adds one item to the end of a list, changing the list itself.",
+      "category": "python",
+      "python_example": {
+        "code": "scores = [2, 4]\nscores.append(6)\nprint(scores)",
+        "output": "[2, 4, 6]\n"
+      }
+    },
+    {
+      "word": ".close()",
+      "description": "Closes a file, releasing associated resources and flushing buffered output.",
+      "category": "python",
+      "python_example": {
+        "code": "file = open(\"note.txt\", \"w\")\nfile.write(\"Hello\")\nfile.close()\nprint(file.closed)",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": ".count()",
+      "description": "Counts matching items in a list or non-overlapping occurrences of a substring in a string.",
+      "category": "python",
+      "python_example": {
+        "code": "print([2, 1, 2].count(2))\nprint(\"banana\".count(\"an\"))",
+        "output": "2\n2\n"
+      }
+    },
+    {
+      "word": ".find()",
+      "description": "Returns the index of the first matching substring, or -1 if it is absent.",
+      "category": "python",
+      "python_example": {
+        "code": "print(\"banana\".find(\"na\"))\nprint(\"banana\".find(\"z\"))",
+        "output": "2\n-1\n"
+      }
+    },
+    {
+      "word": ".insert()",
+      "description": "Inserts an item before the stated index in a list.",
+      "category": "python",
+      "python_example": {
+        "code": "scores = [2, 6]\nscores.insert(1, 4)\nprint(scores)",
+        "output": "[2, 4, 6]\n"
+      }
+    },
+    {
+      "word": ".lower()",
+      "description": "Returns a copy of a string with letters converted to lowercase.",
+      "category": "python",
+      "python_example": {
+        "code": "print(\"Hello\".lower())",
+        "output": "hello\n"
+      }
+    },
+    {
+      "word": ".pop()",
+      "description": "Removes and returns the item at the stated index, or the final item if no index is given.",
+      "category": "python",
+      "python_example": {
+        "code": "scores = [2, 4, 6]\nprint(scores.pop(1))\nprint(scores)",
+        "output": "4\n[2, 6]\n"
+      }
+    },
+    {
+      "word": ".read()",
+      "description": "Reads file contents from the current position; with no size argument it reads to the end.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    file.write(\"Hello\")\nwith open(\"note.txt\", \"r\") as file:\n    print(file.read())",
+        "output": "Hello\n"
+      }
+    },
+    {
+      "word": ".readline()",
+      "description": "Reads one line from the current position, retaining its newline if present. Returns an empty string at end of file.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    file.write(\"Hello\\nWorld\\n\")\nwith open(\"note.txt\", \"r\") as file:\n    print(file.readline(), end=\"\")",
+        "output": "Hello\n"
+      }
+    },
+    {
+      "word": ".readlines()",
+      "description": "Reads the remaining lines into a list of strings, retaining newlines where present.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    file.write(\"Hello\\nWorld\\n\")\nwith open(\"note.txt\", \"r\") as file:\n    print(len(file.readlines()))",
+        "output": "2\n"
+      }
+    },
+    {
+      "word": ".replace()",
+      "description": "Returns a copy of a string with matching text replaced.",
+      "category": "python",
+      "python_example": {
+        "code": "print(\"red car\".replace(\"red\", \"blue\"))",
+        "output": "blue car\n"
+      }
+    },
+    {
+      "word": ".sort()",
+      "description": "Sorts a list in place and returns None. Use reverse=True for descending order.",
+      "category": "python",
+      "python_example": {
+        "code": "scores = [2, 6, 4]\nscores.sort(reverse=True)\nprint(scores)",
+        "output": "[6, 4, 2]\n"
+      }
+    },
+    {
+      "word": ".title()",
+      "description": "Returns a title-cased copy of a string using Python's word-boundary rules.",
+      "category": "python",
+      "python_example": {
+        "code": "print(\"python code lab\".title())",
+        "output": "Python Code Lab\n"
+      }
+    },
+    {
+      "word": ".upper()",
+      "description": "Returns a copy of a string with letters converted to uppercase.",
+      "category": "python",
+      "python_example": {
+        "code": "print(\"Hello\".upper())",
+        "output": "HELLO\n"
+      }
+    },
+    {
+      "word": ".write()",
+      "description": "Writes a string to a text file. It does not add a newline automatically and returns the number of characters written.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    count = file.write(\"Hi\\n\")\nprint(count)",
+        "output": "3\n"
+      }
+    },
+    {
+      "word": "Abstraction",
+      "description": "Keeping the important details of a problem and leaving out details that are not needed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Accepted input",
+      "description": "Data that passes the checks a program applies; it is not necessarily factually correct.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Accurate",
+      "description": "Correct and free from mistakes.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Actual result",
+      "description": "What a program really produces during a test.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Adjacent",
+      "description": "Next to each other, such as two neighbouring items in a list.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Aggregate function",
+      "description": "A function that combines several values into one result, such as SQL SUM or COUNT.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Algorithm",
+      "description": "An ordered set of steps used to solve a problem.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Amend",
+      "description": "Change an existing solution to meet a new requirement.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Amend print(total) so that it displays a label before the total.",
+        "student_answer": "print(\"Total:\", total)"
+      }
+    },
+    {
+      "word": "and",
+      "description": "Combines conditions so the result is true only when both conditions are true. More generally, Python returns one of the operands.",
+      "category": "python",
+      "python_example": {
+        "code": "age = 14\nprint(age >= 11 and age <= 18)",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "Append",
+      "description": "Add data to the end of an existing collection or file.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Append mode",
+      "description": "File mode \"a\", which adds data to the end without deleting existing contents.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Appropriate",
+      "description": "Suitable for the stated task or situation.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Argument",
+      "description": "A value supplied to a function or procedure when it is called.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Arithmetic",
+      "description": "Calculations involving numbers, such as addition and division.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Arithmetic operator",
+      "description": "A symbol that performs a numerical calculation, such as + or *.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Array",
+      "description": "An indexed collection of elements, usually of one data type and a fixed size in school-level examples. A Python list can change size.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement."
+    },
+    {
+      "word": "as",
+      "description": "Binds a name in constructs such as with open(...) as file; it can also give an import an alias.",
+      "category": "python",
+      "python_example": {
+        "code": "import statistics as stats\nprint(stats.mean([2, 4, 6]))",
+        "output": "4\n"
+      }
+    },
+    {
+      "word": "Ascending order",
+      "description": "Order from smallest to largest, or A to Z for text.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Assignment",
+      "description": "Giving a variable a value, using = in Python.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Assume",
+      "description": "Treat something as true when solving a problem.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Assumption",
+      "description": "Something treated as true when planning a solution; state it if the question leaves it unclear.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "At least",
+      "description": "The stated amount or more; at least 5 means 5 or greater.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "At most",
+      "description": "The stated amount or less; at most 5 means 5 or smaller.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Binary search",
+      "description": "Searching sorted data by checking a middle item and repeatedly discarding the half that cannot contain the target.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "bool()",
+      "description": "Converts a value to True or False. Zero and empty strings are false; non-empty strings, including \"False\", are true.",
+      "category": "python",
+      "python_example": {
+        "code": "print(bool(0))\nprint(bool(\"False\"))",
+        "output": "False\nTrue\n"
+      }
+    },
+    {
+      "word": "Boolean",
+      "description": "A data type with two values: True and False.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Boolean expression",
+      "description": "An expression that produces True or False.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Boundary test data",
+      "description": "Values at the limits of an allowed range, with nearby values used to check acceptance and rejection.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Boundary value",
+      "description": "A value at the edge of an allowed range or at a point where behaviour changes.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "break",
+      "description": "Immediately exits the innermost enclosing loop.",
+      "category": "python",
+      "python_example": {
+        "code": "for number in range(5):\n    if number == 2:\n        break\n    print(number)",
+        "output": "0\n1\n"
+      }
+    },
+    {
+      "word": "Bubble sort",
+      "description": "A sort that repeatedly compares adjacent items and swaps those in the wrong order.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Calculate",
+      "description": "Work out a result using the information provided.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Calculate the mean of 4, 7 and 10.",
+        "student_answer": "(4 + 7 + 10) / 3 = 7."
+      }
+    },
+    {
+      "word": "Calling code",
+      "description": "The part of a program that runs a subroutine by calling it.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "CASE",
+      "description": "A branch in older pseudocode selection. Python uses lowercase case within a match statement.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement.",
+      "python_example": {
+        "code": "choice = \"A\"\nmatch choice:\n    case \"A\":\n        print(\"Start\")\n    case _:\n        print(\"Unknown\")",
+        "output": "Start\n",
+        "note": "Python uses lowercase case inside match, not standalone uppercase CASE."
+      }
+    },
+    {
+      "word": "Case sensitive",
+      "description": "Treating uppercase and lowercase letters as different, as Python does with names.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Case-insensitive",
+      "description": "Treating uppercase and lowercase versions of letters as equivalent when comparing text.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Casting",
+      "description": "Converting a value from one data type to another when possible.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Character",
+      "description": "One text symbol, such as a letter, digit, punctuation mark or space.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Character check",
+      "description": "Checking whether text contains only permitted characters or excludes forbidden ones.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement."
+    },
+    {
+      "word": "Character position",
+      "description": "The location of a character in a string; Python starts counting positions at zero.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Check digit",
+      "description": "An extra digit calculated from other digits in a code to detect some entry or transmission errors.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Code block",
+      "description": "A group of instructions belonging together; Python uses indentation to mark blocks.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Code reuse",
+      "description": "Using existing code again instead of writing the same instructions repeatedly.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Colon",
+      "description": "The : symbol, used in Python at the end of headers such as if, for and def.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Column",
+      "description": "A vertical group of values in a table or a two-dimensional arrangement.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Command word",
+      "description": "An instruction word in an exam question that tells you what kind of response is required.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Comment",
+      "description": "Text that explains code to a reader and is not executed as a program instruction.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Compare",
+      "description": "Give relevant similarities and/or differences.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Compare linear search and binary search.",
+        "student_answer": "Both search for a target. Linear search checks items in sequence and can use unsorted data. Binary search needs sorted data and repeatedly halves the search interval."
+      }
+    },
+    {
+      "word": "Comparison",
+      "description": "Checking how values relate, such as whether they are equal or one is larger.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Complete",
+      "description": "Fill in missing parts without changing the supplied structure unnecessarily.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Complete the code to display the number of items: print(____([2, 4, 6]))",
+        "student_answer": "print(len([2, 4, 6]))"
+      }
+    },
+    {
+      "word": "Component part",
+      "description": "One of the smaller parts that make up a system or problem.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Computational thinking",
+      "description": "Approaching problems so that their solutions can be expressed as steps a computer could carry out.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Concatenation",
+      "description": "Joining strings together, commonly using + in Python.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Condition",
+      "description": "An expression tested to decide which action to take or whether to repeat instructions.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Condition-controlled iteration",
+      "description": "Repetition controlled by a condition, rather than a fixed number of repetitions.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Consistent",
+      "description": "Following the same rule or agreeing with other related information.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Constant",
+      "description": "A named value intended to stay unchanged while a program runs. Python commonly uses uppercase names for constants.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Constraint",
+      "description": "A restriction that a solution must satisfy, such as an allowed range or maximum size.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Construct",
+      "description": "Build the requested algorithm, code or diagram.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Construct Python code to calculate the total of the values in scores.",
+        "student_answer": "total = 0\nfor score in scores:\n    total = total + score"
+      }
+    },
+    {
+      "word": "Context",
+      "description": "The situation described in a problem or question.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Convert",
+      "description": "In the official command-word list, change a number from one number system to another. In programming tasks it can also mean changing a value's type or form.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Convert the binary number 1010 to denary.",
+        "student_answer": "8 + 2 = 10."
+      }
+    },
+    {
+      "word": "Corresponding",
+      "description": "Matching or relating to another item, such as a student's name and their score.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Count-controlled iteration",
+      "description": "Repetition that runs a specified number of times.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Counter",
+      "description": "A variable that records how many times something happens.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Counting",
+      "description": "Finding how many items or events there are, often by increasing a counter by one.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Currency data type",
+      "description": "A database data type intended for monetary amounts.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Data structure",
+      "description": "A way of organising data so that it can be stored and processed, such as a list.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Data type",
+      "description": "A category of value, such as integer, string or Boolean, that affects how it can be used.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Database",
+      "description": "An organised collection of data that can be stored, searched and updated.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Debug",
+      "description": "Find and correct errors in code.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Debug the statement Print(\"Hello\").",
+        "student_answer": "print(\"Hello\") - Python is case sensitive, so the function name must be lowercase."
+      }
+    },
+    {
+      "word": "Debugging",
+      "description": "Finding and correcting errors in a program.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Decimal",
+      "description": "A number written using base ten; a database decimal type can store values with a specified number of decimal places.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Decision symbol",
+      "description": "The diamond in a flowchart, used to choose a path according to a condition.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Decomposition",
+      "description": "Breaking a problem into smaller, more manageable parts.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Decrement",
+      "description": "Decrease a value, often by one.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "def",
+      "description": "Introduces a function definition, including its name, parameters and indented body.",
+      "category": "python",
+      "python_example": {
+        "code": "def double(number):\n    return number * 2\n\nprint(double(4))",
+        "output": "8\n"
+      }
+    },
+    {
+      "word": "Define",
+      "description": "Give the precise meaning of a term.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Define a primary key.",
+        "student_answer": "A field or combination of fields that uniquely identifies each record in a table and cannot be null."
+      }
+    },
+    {
+      "word": "Delimiter",
+      "description": "A character marking a boundary, such as quotation marks around a string.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Descending order",
+      "description": "Order from largest to smallest, or Z to A for text.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Describe",
+      "description": "Give the main features or set out the steps.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Describe a linear search.",
+        "student_answer": "Compare the target with each item in order. Stop when it is found or when all items have been checked. If no item matches, report that it was not found."
+      }
+    },
+    {
+      "word": "Design",
+      "description": "Plan a solution that meets the given requirements.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Design an algorithm to output the larger of two different numbers.",
+        "student_answer": "Input both numbers. Compare them. If the first is larger, output the first; otherwise output the second."
+      }
+    },
+    {
+      "word": "Display",
+      "description": "Make information visible to the user.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Display the message Welcome.",
+        "student_answer": "print(\"Welcome\")"
+      }
+    },
+    {
+      "word": "Double entry",
+      "description": "Entering data twice and comparing the entries to check for differences.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Draw",
+      "description": "Produce the requested diagram or connecting lines.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Draw a flowchart decision symbol labelled score >= 50.",
+        "student_answer": "Draw a diamond containing score >= 50, with two outgoing arrows labelled Yes and No."
+      }
+    },
+    {
+      "word": "Dry run",
+      "description": "Following an algorithm manually with chosen data to work out what it does.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Duplicate",
+      "description": "An additional copy or occurrence of something.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Duplicate record",
+      "description": "A database record that repeats information already stored in another record.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Editor",
+      "description": "The area or application where source code is written and changed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Efficiency",
+      "description": "How economically an algorithm uses resources, such as time or memory.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Efficient",
+      "description": "Using relatively little time, memory or other resources to complete a task.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Element",
+      "description": "One item in a data structure such as a list.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Elif",
+      "description": "Python's else-if branch, tested when earlier if or elif conditions were false.",
+      "category": "python",
+      "python_example": {
+        "code": "score = 65\nif score >= 80:\n    print(\"High\")\nelif score >= 50:\n    print(\"Pass\")\nelse:\n    print(\"Retry\")",
+        "output": "Pass\n"
+      },
+      "python_syntax": "elif"
+    },
+    {
+      "word": "else",
+      "description": "Provides the alternative block when an if condition is false.",
+      "category": "python",
+      "python_example": {
+        "code": "age = 10\nif age >= 12:\n    print(\"Older group\")\nelse:\n    print(\"Younger group\")",
+        "output": "Younger group\n"
+      }
+    },
+    {
+      "word": "Empty list",
+      "description": "A list containing no items, written as [] in Python.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Empty string",
+      "description": "A string containing no characters, written as \"\" or '' in Python.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "End of file",
+      "description": "The point at which there is no more data to read from a file.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Equal to",
+      "description": "Having the same value; Python uses == to test equality.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Erroneous test data",
+      "description": "Data that should be rejected because it does not meet input requirements.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Essential",
+      "description": "Necessary for solving the problem.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Evaluate",
+      "description": "Make a supported judgement or work out a value, depending on the context.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Evaluate whether binary search is suitable for a large sorted list that is searched repeatedly.",
+        "student_answer": "It is suitable because it repeatedly halves the search interval, usually requiring fewer comparisons than linear search. The list must remain sorted for the search to work correctly."
+      }
+    },
+    {
+      "word": "Exactly",
+      "description": "The stated amount, with no more or less.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Exception",
+      "description": "An event raised during execution that interrupts normal control flow unless handled, such as ValueError.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Exclusive",
+      "description": "Not including a stated endpoint; values greater than 0 and less than 10 exclude 0 and 10.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Execute",
+      "description": "Run an instruction or program.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Execution",
+      "description": "The process of running a program's instructions.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Exit condition",
+      "description": "The condition that causes repetition to stop.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Expected result",
+      "description": "The result a correct program should produce for a chosen test.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Explain",
+      "description": "Give reasons or explain how something works, linking each point to its effect.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Explain how procedures make a program easier to maintain.",
+        "student_answer": "A repeated task can be placed in one procedure, so a correction needs to be made in only one place. Each procedure can also be tested separately, making errors easier to locate."
+      }
+    },
+    {
+      "word": "Exponentiation",
+      "description": "Raising a number to a power; Python uses **.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Expression",
+      "description": "A combination of values, variables, operators or calls that produces a value.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Extreme data",
+      "description": "Older terminology for the smallest and largest acceptable values; relate this to boundary testing.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement."
+    },
+    {
+      "word": "False",
+      "description": "The Boolean value representing a false condition; the capital F is required.",
+      "category": "python",
+      "python_example": {
+        "code": "ready = False\nprint(ready)",
+        "output": "False\n"
+      }
+    },
+    {
+      "word": "Field",
+      "description": "A named data item in a database table, represented by a column.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "File",
+      "description": "A named collection of stored data.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "File contents",
+      "description": "The data stored inside a file.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "File handling",
+      "description": "Opening, reading, writing and closing files in a program.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "File mode",
+      "description": "The setting used when opening a file, such as read, write or append.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Filter",
+      "description": "Select only the items or records that meet a condition.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "float()",
+      "description": "Converts a suitable value to a floating-point number.",
+      "category": "python",
+      "python_example": {
+        "code": "print(float(\"2.5\") + 1)",
+        "output": "3.5\n"
+      }
+    },
+    {
+      "word": "Floating-point number",
+      "description": "A number stored in a format that can represent fractional values, sometimes approximately; Python uses float.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Floor division",
+      "description": "Division rounded down towards negative infinity; Python uses //.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Flow line",
+      "description": "An arrow showing the direction of control between flowchart symbols.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Flowchart",
+      "description": "A diagram showing an algorithm using standard shapes and arrows.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "For",
+      "description": "A Python loop that visits each item in an iterable, such as a list or range.",
+      "category": "python",
+      "python_example": {
+        "code": "for number in range(3):\n    print(number)",
+        "output": "0\n1\n2\n"
+      },
+      "python_syntax": "for"
+    },
+    {
+      "word": "Foreign key",
+      "description": "A field or set of fields that refers to a key in another table, linking related records.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Format check",
+      "description": "Checking whether data follows a required pattern, such as two letters followed by four digits.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Fractional part",
+      "description": "The part of a number that is not a whole number; in 3.75 it is 0.75.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Function",
+      "description": "A subroutine that returns a result to the calling code.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Function call",
+      "description": "An instruction or expression that runs a function, such as len(\"cat\").",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Function definition",
+      "description": "The code that names a function and specifies its parameters and instructions.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Generate",
+      "description": "Produce values using the specified method.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Write Python to generate a random integer from 1 to 6 inclusive.",
+        "student_answer": "import random\nnumber = random.randint(1, 6)"
+      }
+    },
+    {
+      "word": "Give",
+      "description": "Provide the requested fact, value or example.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Give one example of a Boolean value in Python.",
+        "student_answer": "True."
+      }
+    },
+    {
+      "word": "global",
+      "description": "Makes assignments to a name inside a function refer to that name in the module-level scope.",
+      "category": "python",
+      "python_example": {
+        "code": "score = 0\ndef add_point():\n    global score\n    score = score + 1\n\nadd_point()\nprint(score)",
+        "output": "1\n"
+      }
+    },
+    {
+      "word": "Global constant",
+      "description": "A named value defined outside subroutines and intended to stay unchanged.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Global scope",
+      "description": "The outer-level scope in a program or module; access within functions follows Python's scope rules.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Global variable",
+      "description": "A variable defined at the outer level of a program or module; a function needs global to reassign that name globally.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Greater than",
+      "description": "Larger than another value; Python uses >.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Identifier",
+      "description": "A name for a program element, such as a variable or function.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Identify",
+      "description": "Name, recognise or select the requested item.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Identify the validation check used to require a six-character code.",
+        "student_answer": "Length check."
+      }
+    },
+    {
+      "word": "If",
+      "description": "A Python selection statement that runs a block when its condition is true.",
+      "category": "python",
+      "python_example": {
+        "code": "score = 60\nif score >= 50:\n    print(\"Pass\")",
+        "output": "Pass\n"
+      },
+      "python_syntax": "if"
+    },
+    {
+      "word": "import",
+      "description": "Makes a module or its definitions available to a program.",
+      "category": "python",
+      "python_example": {
+        "code": "import math\nprint(math.sqrt(9))",
+        "output": "3.0\n"
+      }
+    },
+    {
+      "word": "in",
+      "description": "Tests membership; with a string it tests whether a substring occurs. It is also part of a for-loop header.",
+      "category": "python",
+      "python_example": {
+        "code": "print(4 in [2, 4, 6])",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "Inclusive",
+      "description": "Including the stated endpoints; 1 to 6 inclusive includes both 1 and 6.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Increment",
+      "description": "Increase a value, often by one.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Incremental development",
+      "description": "Building and testing a solution in small stages.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Incrementally",
+      "description": "In small stages rather than all at once.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Indentation",
+      "description": "Spaces at the start of a line; Python uses them to show which statements belong to a block.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Index",
+      "description": "A position used to access an item in a sequence; Python starts at zero.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Index position",
+      "description": "The numbered location of an item in a sequence.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Infinite loop",
+      "description": "A loop that continues without reaching a stopping point.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Initialisation",
+      "description": "Giving a variable or data structure its starting value or values.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Initialise",
+      "description": "Give variables or data structures their starting values.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Initialise a counter named count to zero.",
+        "student_answer": "count = 0"
+      }
+    },
+    {
+      "word": "Inner join",
+      "description": "A database operation returning combinations of rows from two tables that satisfy the join condition.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Input",
+      "description": "Data supplied to a program for processing.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "input()",
+      "description": "Displays an optional prompt and returns the entered text as a string.",
+      "category": "python",
+      "python_example": {
+        "code": "name = input(\"Name: \")\nprint(\"Hello\", name)",
+        "output": "Hello Ada\n",
+        "input": "Ada",
+        "note": "Output shows printed results only; the input prompt is shown separately when run interactively."
+      }
+    },
+    {
+      "word": "Input/output symbol",
+      "description": "The parallelogram in a flowchart, used for receiving or displaying data.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Insertion sort",
+      "description": "A sort that takes each next item and inserts it into the correct position in the already sorted part.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Instruction",
+      "description": "A direction telling a computer what to do.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "int()",
+      "description": "Converts a suitable value to an integer; a fractional number is truncated towards zero.",
+      "category": "python",
+      "python_example": {
+        "code": "print(int(\"12\"))\nprint(int(-3.8))",
+        "output": "12\n-3\n"
+      }
+    },
+    {
+      "word": "Integer",
+      "description": "A whole number with no fractional part, including negative numbers and zero.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Invalid data",
+      "description": "Data that does not satisfy the stated rules.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Irrelevant",
+      "description": "Not needed for the task or problem.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Item",
+      "description": "One value or object in a collection.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Iteration",
+      "description": "Repeating a set of instructions; it can also mean one repetition of a loop.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Iteration count",
+      "description": "The number of times a loop body runs.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Join",
+      "description": "Combine related rows from database tables using a matching condition.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Join condition",
+      "description": "The rule used to match rows from different tables, often equality between key fields.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Keyword",
+      "description": "A word reserved by a programming language for a particular purpose, such as if or while.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Leading zero",
+      "description": "A zero before other digits, such as the zeros in \"007\"; use a string when these must be preserved.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "len()",
+      "description": "Returns the number of items in a collection or characters in a string.",
+      "category": "python",
+      "python_example": {
+        "code": "print(len(\"Python\"))",
+        "output": "6\n"
+      }
+    },
+    {
+      "word": "Length check",
+      "description": "Checking that the number of characters or items meets a stated rule.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Less than",
+      "description": "Smaller than another value; Python uses <.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Linear search",
+      "description": "Checking items one by one until the target is found or there are no items left.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Linked tables",
+      "description": "Database tables connected through related key values.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "List",
+      "description": "An ordered, changeable collection of items in Python.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Local constant",
+      "description": "A named value within a subroutine that is intended to remain unchanged.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Local scope",
+      "description": "The region within a subroutine where its local names can be accessed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Local variable",
+      "description": "A variable belonging to a particular subroutine call.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Logic error",
+      "description": "A mistake in a program's steps that causes incorrect behaviour even though the code can run.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Logical operator",
+      "description": "An operator that combines or reverses conditions, such as and, or and not.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Lookup check",
+      "description": "Checking whether a value appears in a collection of accepted values.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement."
+    },
+    {
+      "word": "Loop body",
+      "description": "The instructions that run during each repetition of a loop.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Loop variable",
+      "description": "A variable used by a loop, often to hold the current item or position.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Lower limit",
+      "description": "The smallest boundary value of a range; whether it is included depends on the rule.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Lowercase",
+      "description": "Small letters, such as a, b and c.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Maintain",
+      "description": "Keep a program working correctly and update it when needed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Maintainability",
+      "description": "How easily a program can be understood, corrected and changed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "match",
+      "description": "Selects a matching case using structural pattern matching; available from Python 3.10.",
+      "category": "python",
+      "python_example": {
+        "code": "choice = \"A\"\nmatch choice:\n    case \"A\":\n        print(\"Start\")\n    case _:\n        print(\"Unknown\")",
+        "output": "Start\n"
+      }
+    },
+    {
+      "word": "Matching field",
+      "description": "A field whose values are compared with another field, often when joining tables.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Matching records",
+      "description": "Records that satisfy a search or matching condition.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "max()",
+      "description": "Returns the largest value from the given values or iterable.",
+      "category": "python",
+      "python_example": {
+        "code": "print(max([2, 6, 4]))",
+        "output": "6\n"
+      }
+    },
+    {
+      "word": "Maximum",
+      "description": "The largest value in a group or the greatest amount allowed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Mean",
+      "description": "The sum of the values divided by the number of values.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Membership",
+      "description": "Whether a value is present in a collection, tested with in or not in in Python.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Merge",
+      "description": "Combine parts into one result; in merge sort, combine sorted parts while preserving order.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Merge sort",
+      "description": "A sort that divides data into smaller parts and merges sorted parts into a sorted result.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Midpoint",
+      "description": "A position near the centre of a search interval, used in binary search.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "min()",
+      "description": "Returns the smallest value from the given values or iterable.",
+      "category": "python",
+      "python_example": {
+        "code": "print(min([2, 6, 4]))",
+        "output": "2\n"
+      }
+    },
+    {
+      "word": "Minimum",
+      "description": "The smallest value in a group or the least amount allowed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Modular programming",
+      "description": "Organising a program into separate parts or subroutines with clear purposes.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Module",
+      "description": "A unit of Python code that can be imported to use its definitions, such as random.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Modulus",
+      "description": "The remainder operation, written as % in Python.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Negative integer",
+      "description": "A whole number less than zero, such as -4.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Nested loop",
+      "description": "A loop inside another loop.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Nested selection",
+      "description": "A selection statement inside another selection statement.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Newline",
+      "description": "A character that marks a new line of text, written as \\n in a Python string.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Normal test data",
+      "description": "Typical valid data that a program is expected to accept.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "not",
+      "description": "Reverses the truth value of an expression.",
+      "category": "python",
+      "python_example": {
+        "code": "finished = False\nprint(not finished)",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "Not equal to",
+      "description": "Having different values; Python uses !=.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "not in",
+      "description": "Tests whether a value is absent from a collection.",
+      "category": "python",
+      "python_example": {
+        "code": "print(5 not in [2, 4, 6])",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "Null",
+      "description": "A database marker for missing or unknown data; it is not the same as zero or an empty string.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Occurrence",
+      "description": "One instance of a value, character or event appearing or happening.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Off-by-one error",
+      "description": "An error caused by a boundary or count being one too high or too low.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "One-dimensional list",
+      "description": "A list arranged as a single sequence of items.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "open()",
+      "description": "Opens a file and returns a file object. The mode controls whether it is read, written or appended to.",
+      "category": "python",
+      "python_example": {
+        "code": "file = open(\"note.txt\", \"w\")\nfile.write(\"Hello\")\nfile.close()",
+        "output": ""
+      }
+    },
+    {
+      "word": "or",
+      "description": "Combines conditions so the result is true when at least one is true. More generally, Python returns one of the operands.",
+      "category": "python",
+      "python_example": {
+        "code": "age = 20\nprint(age < 11 or age > 18)",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "Order of operations",
+      "description": "The rules deciding which operations happen first in an expression; brackets can change the order.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Ordered data",
+      "description": "Data arranged according to a defined order, such as ascending numerical order.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Outline",
+      "description": "Give the main points briefly.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Outline how a program calculates the mean of five scores.",
+        "student_answer": "Input the five scores, add them together, divide the total by five and output the result."
+      }
+    },
+    {
+      "word": "Output",
+      "description": "Information produced by a program.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Output the value of total with a suitable label.",
+        "student_answer": "print(\"Total:\", total)"
+      }
+    },
+    {
+      "word": "Overwrite",
+      "description": "Replace existing data; opening a file in write mode clears its previous contents.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Parameter",
+      "description": "A named input in a subroutine definition that receives an argument when called.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Parentheses",
+      "description": "Round brackets (), used for function calls and grouping expressions.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Pass",
+      "description": "One traversal through the relevant items during a sorting algorithm; also a Python keyword for doing nothing.",
+      "category": "vocabulary",
+      "python_example": {
+        "code": "for number in range(2):\n    pass\nprint(\"Finished\")",
+        "output": "Finished\n",
+        "note": "This shows the Python keyword pass, not a pass through a sorting algorithm."
+      }
+    },
+    {
+      "word": "Persistent storage",
+      "description": "Storage that keeps data after a program has stopped running.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Positive integer",
+      "description": "A whole number greater than zero.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Post-condition loop",
+      "description": "A loop that checks its condition after its body, so the body runs at least once.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Pre-condition loop",
+      "description": "A loop that checks its condition before its body, so the body may run zero times.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Presence check",
+      "description": "Checking that required data has been entered.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Preserve",
+      "description": "Keep data without losing it or changing it unintentionally.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Primary key",
+      "description": "A field or combination of fields that uniquely identifies each record and cannot be null.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "print()",
+      "description": "Displays values, separated by spaces by default, followed by a newline.",
+      "category": "python",
+      "python_example": {
+        "code": "print(\"Score:\", 7)",
+        "output": "Score: 7\n"
+      }
+    },
+    {
+      "word": "Problem statement",
+      "description": "A description of the problem that a solution must address.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Procedure",
+      "description": "A subroutine used to perform a task without returning a useful result. In Python it can be defined with def and return None implicitly.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Process",
+      "description": "An operation that uses or changes data, such as a calculation.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Process symbol",
+      "description": "The rectangle in a flowchart, used for an operation such as assignment or calculation.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Program",
+      "description": "A set of instructions that a computer can execute.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Programming construct",
+      "description": "A basic structure used to control a program, such as sequence, selection or iteration.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Programming environment",
+      "description": "The tools and facilities used to write, run and test code.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Prompt",
+      "description": "A message asking the user to enter data.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Proofreading",
+      "description": "Reading entered text and comparing it with the source to find copying mistakes.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement."
+    },
+    {
+      "word": "Purpose",
+      "description": "What something is intended to do or achieve.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Query",
+      "description": "A request to retrieve or work with data in a database.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Query result",
+      "description": "The data returned by a database query.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Quotation marks",
+      "description": "Symbols surrounding a string literal in Python; matching single or double quotation marks can be used.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "random.randint()",
+      "description": "Returns a randomly selected integer between two endpoints, including both.",
+      "category": "python",
+      "python_example": {
+        "code": "import random\nnumber = random.randint(1, 6)\nprint(1 <= number <= 6)",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "random.randrange()",
+      "description": "Returns a randomly selected integer from a range; the stop value is excluded.",
+      "category": "python",
+      "python_example": {
+        "code": "import random\nnumber = random.randrange(1, 7)\nprint(1 <= number <= 6)",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "Range check",
+      "description": "Checking that a value lies within the stated limits.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "range()",
+      "description": "Produces a sequence of integers for iteration. The stop value is excluded.",
+      "category": "python",
+      "python_example": {
+        "code": "for number in range(1, 4):\n    print(number)",
+        "output": "1\n2\n3\n"
+      }
+    },
+    {
+      "word": "Read mode",
+      "description": "File mode \"r\", used to read existing file contents.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Reading position",
+      "description": "The current location in a file from which the next read will begin.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Record",
+      "description": "A collection of related fields about one item, represented by a database row.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Rejected input",
+      "description": "Data that fails a program's checks and is not accepted.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Relational database",
+      "description": "A database that organises data into tables with relationships between them.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Relational operator",
+      "description": "An operator comparing values, such as ==, < or >=.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Relevant",
+      "description": "Connected to the task and useful for solving it.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Remainder",
+      "description": "What is left after whole-number division, such as 1 when 10 is divided into groups of 3.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Repeat",
+      "description": "Older pseudocode terminology for a post-condition loop; Python can express this behaviour using while True and break.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement.",
+      "python_example": {
+        "code": "count = 0\nwhile True:\n    count = count + 1\n    if count == 3:\n        break\nprint(count)",
+        "output": "3\n",
+        "note": "Python has no repeat keyword; this demonstrates post-condition behaviour."
+      }
+    },
+    {
+      "word": "Repetition",
+      "description": "Running instructions more than once.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Requirement",
+      "description": "A statement of what a solution must do or a condition it must satisfy.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Respectively",
+      "description": "In the same order as the items previously named.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Retrieve",
+      "description": "Get stored data back for use.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "return",
+      "description": "Ends a function call and sends a value back to its caller. Without a value, it returns None.",
+      "category": "python",
+      "python_example": {
+        "code": "def square(number):\n    return number * number\n\nprint(square(3))",
+        "output": "9\n"
+      }
+    },
+    {
+      "word": "Return value",
+      "description": "The result a function sends back to the code that called it.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "round()",
+      "description": "Rounds a number to the requested precision. Exact halfway ties use the even choice; floating-point representation can affect results.",
+      "category": "python",
+      "python_example": {
+        "code": "print(round(3.146, 2))",
+        "output": "3.15\n"
+      }
+    },
+    {
+      "word": "Rounding",
+      "description": "Choosing a nearby value at a specified precision, such as rounding 3.146 to 3.15.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Row",
+      "description": "A horizontal group of values, such as one record in a database table.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Run-time error",
+      "description": "An error that occurs while a program is executing, such as division by zero.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Scenario",
+      "description": "A described situation on which a question or programming task is based.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Scope",
+      "description": "The region of a program in which a name can be accessed.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Search interval",
+      "description": "The section of a collection still being considered during a search.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Selection",
+      "description": "Choosing which instructions to run according to a condition.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Sentinel value",
+      "description": "A special value used to signal that input or repetition should stop.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Sequence",
+      "description": "Executing instructions in a specified order.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Show",
+      "description": "Provide working or intermediate steps that demonstrate a result.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Show the list after each complete left-to-right bubble-sort pass when sorting [3, 2, 1] into ascending order.",
+        "student_answer": "Pass 1: [2, 1, 3]. Pass 2: [1, 2, 3]. The list is now sorted."
+      }
+    },
+    {
+      "word": "Simplified model",
+      "description": "A representation that keeps the important features of a problem and leaves out unnecessary detail.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Single-table database",
+      "description": "A database whose relevant data is organised in one table.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Sorted section",
+      "description": "The part of a collection already arranged in the required order.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Source code",
+      "description": "The program instructions written by a programmer.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "SQL",
+      "description": "Structured Query Language, used to define, retrieve and change data in relational databases.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "SQL statement",
+      "description": "An instruction written in SQL, such as SELECT Name FROM Student.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Square brackets",
+      "description": "The [ and ] symbols, used in Python for list literals and indexing.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "State",
+      "description": "Give a clear, direct answer.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "State the purpose of verification.",
+        "student_answer": "To check that data has been copied or entered accurately from its source."
+      }
+    },
+    {
+      "word": "Statement",
+      "description": "An instruction in a programming language, such as an assignment or return statement.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "statistics.mean()",
+      "description": "Returns the arithmetic mean of the numerical values; the statistics module must be imported.",
+      "category": "python",
+      "python_example": {
+        "code": "import statistics\nprint(statistics.mean([2, 4, 6]))",
+        "output": "4\n"
+      }
+    },
+    {
+      "word": "Storage",
+      "description": "Keeping data so that it can be used later.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Store",
+      "description": "Keep data in the specified variable or structure.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Store the number 12 in a variable named score.",
+        "student_answer": "score = 12"
+      }
+    },
+    {
+      "word": "str()",
+      "description": "Converts a value to its string representation.",
+      "category": "python",
+      "python_example": {
+        "code": "print(\"Score: \" + str(8))",
+        "output": "Score: 8\n"
+      }
+    },
+    {
+      "word": "String",
+      "description": "A sequence of characters representing text.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "String literal",
+      "description": "Text written directly in code inside quotation marks, such as \"Hello\".",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Structured Query Language",
+      "description": "The full name of SQL, a language for working with relational databases.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Subproblem",
+      "description": "A smaller problem created by decomposing a larger one.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Subroutine",
+      "description": "A named group of instructions that can be called to perform a task.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Substring",
+      "description": "A consecutive sequence of characters within a string.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Suggest",
+      "description": "Apply your knowledge to propose a suitable answer for the situation.",
+      "category": "exam_command",
+      "exam_example": {
+        "question": "Suggest normal test data for a program accepting integer ages from 11 to 18 inclusive.",
+        "student_answer": "14, because it is a typical valid integer within the allowed range."
+      }
+    },
+    {
+      "word": "Suggest a correction",
+      "description": "Propose a change that fixes an identified error.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "The statement mean = total * count should calculate a mean. Suggest a correction. Assume count is positive.",
+        "student_answer": "mean = total / count"
+      }
+    },
+    {
+      "word": "Suitable",
+      "description": "A good choice for the stated purpose.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "sum()",
+      "description": "Adds the numerical values in an iterable.",
+      "category": "python",
+      "python_example": {
+        "code": "print(sum([2, 4, 6]))",
+        "output": "12\n"
+      }
+    },
+    {
+      "word": "Swap",
+      "description": "Exchange the positions or values of two items.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Syntax",
+      "description": "The grammar rules for writing valid code.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Syntax error",
+      "description": "An error caused by breaking the grammar rules of a programming language.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Table",
+      "description": "A database structure with records in rows and fields in columns.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Target value",
+      "description": "The value a search is trying to find.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Termination",
+      "description": "The ending of a loop, algorithm or program.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Test case",
+      "description": "One planned test, including chosen inputs or conditions and the expected result.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Test data",
+      "description": "Input values chosen to check a program's behaviour.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Test fixture",
+      "description": "Known data or starting conditions used to make a test repeatable.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Test plan",
+      "description": "A record of planned tests, their inputs and expected results, with actual results added during testing.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Text file",
+      "description": "A file storing data as characters, often arranged in lines.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Tick",
+      "description": "Mark the requested answer box or boxes.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Tick one box to identify an integer: 4, 4.5, \"four\".",
+        "student_answer": "Tick the box beside 4."
+      }
+    },
+    {
+      "word": "Title case",
+      "description": "Text with initial capital letters; Python's title() applies its own word-boundary rules.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Totalling",
+      "description": "Adding values to an accumulated sum.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Trace table",
+      "description": "A table showing variable values, inputs and outputs as an algorithm is followed step by step.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "True",
+      "description": "The Boolean value representing a true condition; the capital T is required.",
+      "category": "python",
+      "python_example": {
+        "code": "ready = True\nprint(ready)",
+        "output": "True\n"
+      }
+    },
+    {
+      "word": "Truncation",
+      "description": "Removing a fractional part rather than rounding; int() truncates towards zero.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Twin entry",
+      "description": "Older terminology in the book for two people entering the same source data so the entries can be compared.",
+      "category": "vocabulary",
+      "note": "Included from the older book. Its presence here does not mean it is a separately named 2029 syllabus requirement."
+    },
+    {
+      "word": "Two-dimensional list",
+      "description": "A list of lists used to represent data such as rows and columns.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Two-table database",
+      "description": "A database arrangement using two tables, often connected by a foreign key.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Type check",
+      "description": "Checking that data has, or can be interpreted as, the required data type.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Underscore",
+      "description": "The _ character, often used between words in Python identifiers.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Unique",
+      "description": "Different from every other item in the relevant group.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Unique identifier",
+      "description": "A value that distinguishes one item from every other item in a collection.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Unsorted section",
+      "description": "The part of a collection that has not yet been arranged in the required order.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Upper limit",
+      "description": "The greatest boundary value of a range; whether it is included depends on the rule.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Uppercase",
+      "description": "Capital letters, such as A, B and C.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Valid data",
+      "description": "Data that satisfies the stated rules; it may still be factually wrong.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Validation",
+      "description": "Checking data against rules for acceptability; it does not prove that the data is correct.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Variable",
+      "description": "A named reference to a value that can change during a program's execution.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Verification",
+      "description": "Checking that data has been copied or entered accurately from its source; comparisons can be manual or automated.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Visual check",
+      "description": "A person comparing entered data with its source to find mistakes.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "While",
+      "description": "A Python loop that repeats while its condition is true, checking before each repetition.",
+      "category": "python",
+      "python_example": {
+        "code": "count = 0\nwhile count < 3:\n    print(count)\n    count = count + 1",
+        "output": "0\n1\n2\n"
+      },
+      "python_syntax": "while"
+    },
+    {
+      "word": "with",
+      "description": "Manages a context; with open(...) closes the file automatically when the block finishes, including if an error occurs.",
+      "category": "python",
+      "python_example": {
+        "code": "with open(\"note.txt\", \"w\") as file:\n    file.write(\"Hello\")",
+        "output": ""
+      }
+    },
+    {
+      "word": "Write",
+      "description": "Produce the requested code, statement or answer.",
+      "category": "exam_instruction",
+      "exam_example": {
+        "question": "Write Python to input a name and display a greeting.",
+        "student_answer": "name = input(\"Name: \")\nprint(\"Hello\", name)"
+      }
+    },
+    {
+      "word": "Write mode",
+      "description": "File mode \"w\", which creates a file if needed and clears existing contents when opened.",
+      "category": "vocabulary"
+    },
+    {
+      "word": "Zero-based indexing",
+      "description": "Numbering positions from zero; a list of length n has non-negative indices 0 to n - 1.",
+      "category": "vocabulary"
+    }
+  ]
+}
